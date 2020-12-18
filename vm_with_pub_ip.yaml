@@ -19,7 +19,7 @@
     resource_group_vm: MyAzure_group
     vnet_name: myVentName
     subnet_name: mysubNet
-    vm_name: MyTestVm
+    vm_name: jjvm
     location: eastus
     repo_url: https://github.com/yungezz/helloworld.git
     workspace: ~/src/helloworld
@@ -76,7 +76,7 @@
         
       - name: add azure vm into host
       add_host:
-        name: myTesVM
+        name: jjvm
         ansible_host: '{{ output.ansible_facts.azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.ipAddress }}'
         ansible_connection: ssh  # not guaranteed to have sshpass...
         ansible_user: "{{ admin_username }}"
@@ -88,7 +88,7 @@
         
 - name: azure host
   vars:
-    vm_name: MyTestVm
+    vm_name: jjvm
     admin_username: ansibletower
     admin_password: Ansibletower@123 
     credentials:
